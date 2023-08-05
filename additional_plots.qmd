@@ -1,0 +1,3 @@
+# Graphiques supplémentaires
+
+Cette première annexe peut inclure les graphiques redondants, produits par exemple lorsqu'on répète la même analyse sur plusieurs jeux de données ou en utilisant plusieurs modèles. Il est toutefois plus judicieux d'essayer de rassembler les résultats des différentes analyses sur un même graphique, quitte à choisir un indicateur plus synthétique pour restituer les résultats.

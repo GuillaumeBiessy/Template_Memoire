@@ -1,0 +1,40 @@
+project:
+  type: book
+
+book:
+  title: "Template Memoire"
+  author: "Guillaume Biessy, responsable R&D"
+  date: last-modified
+  date-format: long
+  chapters:
+    - index.qmd
+    - stats-desc.qmd
+    - references.qmd
+  appendices:
+    - code.qmd
+    - additional_plots.qmd
+
+format:
+  pdf:
+    documentclass: scrbook
+    classoption: oneside
+    papersize: a4
+    lof: true
+    lot: true
+    template-partials:
+      - before-body.tex
+    include-in-header: preamble_latex.tex
+
+fontsize: 11pt
+lang: fr
+bibliography: references.bib
+keep-tex: true
+
+execute:
+  include: true
+  echo: false
+  warning: false
+  message: false
+
+
+

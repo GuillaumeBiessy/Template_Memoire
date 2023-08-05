@@ -1,0 +1,3 @@
+# Code
+
+Cette annexe peut inclure le code $\textsf{R}$ de certains algorithmes spécialement écrits pour le Mémoire.

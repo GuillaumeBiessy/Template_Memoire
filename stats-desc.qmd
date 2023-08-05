@@ -1,0 +1,56 @@
+# Statistiques Descriptives {#sec-stats-desc}
+
+```{r, include=FALSE}
+source("preamble.R", encoding = "UTF8")
+```
+
+Les titres de sections peuvent être marquées d'un repère en utilisant `{#sec-stats-desc}` après quoi, on peut y faire référence, par exemple @sec-stats-desc ou Chapitre [-@sec-stats-desc] pour personnaliser l'intitulé.
+
+```{r}
+mtcars2 <- within(mtcars, {
+  vs <- factor(vs, labels = c("V-shaped", "Straight"))
+  am <- factor(am, labels = c("Automatic", "Manual"))
+  cyl  <- factor(cyl)
+  gear <- factor(gear)
+})
+```
+
+```{r nice-fig}
+#| label: fig-nice-fig
+#| fig-cap: "Une figure simple aux couleurs de LinkPact"
+#| fig-width: 8
+#| out-width: 80%
+(p1 <- ggplot(mtcars2) +
+  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  labs(title = "Fuel economy declines as weight increases",
+       subtitle = "(1973-74)",
+       caption = "Data from the 1974 Motor Trend US magazine.",
+       x = "Weight (1000 lbs)",
+       y = "Fuel economy (mpg)",
+       colour = "Gears"))
+```
+
+```{r nice-fig2}
+#| label: fig-nice-fig2
+#| fig-cap: "Une deuxième figure avec des panneaux"
+#| fig-width: 12
+#| fig-asp: 0.618
+#| out-width: 100%
+p1 + facet_grid(vs ~ am) + theme_LinkPact(1.2 * 12)
+```
+
+Pour faire référence à une figure on utilise l'intitulé du fragment de code, précédé de `fig:`, e.g., @fig-nice-fig. De manière similaire on fait référence aux tables crées en utilisant `knitr::kable()` en précédant l'intitulé du fragment de code de `tab:`, e.g., Table @tbl-nice-tab.
+
+```{r nice-tab}
+#| label: tbl-nice-tab
+#| tbl-cap: "En voilà une jolie table"
+head(iris, 20) |>kable_LinkPact()
+```
+
+```{r nice-tab2}
+#| label: tbl-nice-tab2
+#| tbl-cap: "Et voici une table à double entrée"
+tab <- head(iris, 10)
+rownames(tab) <- paste("Observation", 1:10)
+tab |> kable_LinkPact2()
+```
